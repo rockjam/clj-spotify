@@ -5,10 +5,8 @@
             :url  "http://opensource.org/licenses/MIT"}
   :plugins [[lein-cloverage "1.2.1"]]
   :dependencies [[org.clojure/clojure "1.10.1"]
-                 [org.clojure/data.json "1.0.0"]
-                 [org.clojure/data.codec "0.1.1"]
-                 [cheshire "5.10.0"]
-                 [clj-http "3.11.0"]]
+                 [cheshire "5.13.0"]
+                 [clj-http "3.13.0"]]
   :profiles {
              :dev {
                    :source-paths ["dev-resources"]

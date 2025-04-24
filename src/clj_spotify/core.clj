@@ -1,6 +1,6 @@
 (ns clj-spotify.core
   (:require [clj-http.client :as client]
-            [clojure.data.json :as json]
+            [cheshire.core :as json]
             [clojure.string :as string]))
 
 (def template-keys [:id :category_id :owner_id :playlist_id :user_id])
@@ -14,7 +14,7 @@
 (defn json-string-to-map
   "Read string and transform into json"
   [s]
-  (json/read-str s :key-fn keyword))
+  (json/parse-string s true))
 
 (defn response-to-map
   "Parse body of http response to json.
@@ -108,7 +108,7 @@
         (:image form-params) {:body (:image form-params)}
         (:tracks query-params) {:body (select-keys query-params [:tracks])}
         :else {:form-params form-params
-         :query-params query-params}))))
+               :query-params query-params}))))
 
 (defn spotify-api-call
   "Returns a function that takes a map m and an optional oauth-token t as arguments."

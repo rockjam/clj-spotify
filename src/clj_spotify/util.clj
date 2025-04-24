@@ -1,8 +1,8 @@
 (ns clj-spotify.util
   (:require [clj-http.client :as client]
-            [clojure.data.codec.base64 :as b64]
             [clojure.java.io :as io])
-  (:import [org.apache.commons.io IOUtils]))
+  (:import (java.util Base64)
+           (org.apache.commons.io IOUtils)))
 
 (defn get-access-token
   "Requests an access token from Spotify's API via the Client Credentials flow.
@@ -28,10 +28,13 @@
       :body
       :access_token))
 
+(defn b64-encode [^bytes b]
+  (.encode (Base64/getEncoder) b))
+
 (defn encode-to-base64
   "Encode file to base64."
   [file-path]
   (-> file-path
       io/input-stream
       IOUtils/toByteArray
-      b64/encode))
+      b64-encode))

@@ -1,9 +1,7 @@
 (ns clj-spotify.core-test
   (:require [clojure.test :refer :all]
             [clj-spotify.core :as sptfy]
-            [clojure.data.json :as json]
             [clojure.data :as data]
-            [clj-http.client :as client]
             [clj-spotify.test-utils :as util]
             [clj-spotify.test-fixtures :as tf]))
 

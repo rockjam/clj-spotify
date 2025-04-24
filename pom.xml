@@ -18,7 +18,7 @@
     <url>https://github.com/blmstrm/clj-spotify</url>
     <connection>scm:git:git://github.com/blmstrm/clj-spotify.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/blmstrm/clj-spotify.git</developerConnection>
-    <tag>6d5bc596202e1ba42b3c78ae6551b9ea155aad73</tag>
+    <tag>e292367c4fa16e048ba4a3f77750c4ed9db81dc0</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -69,24 +69,14 @@
       <version>1.10.1</version>
     </dependency>
     <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>data.json</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>data.codec</artifactId>
-      <version>0.1.1</version>
-    </dependency>
-    <dependency>
       <groupId>cheshire</groupId>
       <artifactId>cheshire</artifactId>
-      <version>5.10.0</version>
+      <version>5.13.0</version>
     </dependency>
     <dependency>
       <groupId>clj-http</groupId>
       <artifactId>clj-http</artifactId>
-      <version>3.11.0</version>
+      <version>3.13.0</version>
     </dependency>
     <dependency>
       <groupId>org.clojure</groupId>
