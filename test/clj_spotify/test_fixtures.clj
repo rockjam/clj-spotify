@@ -34,7 +34,9 @@
 
 (def malformed-json-response {:body "{\"test-key\": \"test-value\", \"test-map\" : {\"a\": \"a\"}, \"test-vector\" : [1 2 3], \"test-null\" : }"}) 
 
-(defn nullpointer-error-map [response] {:error {:status "NullPointerException", :message nil, :response response}})
+(defn nullpointer-error-map
+  ([response] (nullpointer-error-map response nil))
+  ([response message] {:error {:status "NullPointerException", :message message, :response response}}))
 
 (defn json-missing-key-error-map [response]
   {:error {:status "Exception", :message "JSON error (key missing value in object)", :response response}})

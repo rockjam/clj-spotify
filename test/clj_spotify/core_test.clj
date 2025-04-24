@@ -19,7 +19,10 @@
   (testing "Conversion from string to clojure map"
     (is (= tf/correct-map (sptfy/response-to-map tf/correctly-formatted-response))))
   (testing "Missing body tag in response."
-    (is (= (tf/nullpointer-error-map tf/missing-body-tag-response) (sptfy/response-to-map tf/missing-body-tag-response))))
+    (let [actual (sptfy/response-to-map tf/missing-body-tag-response)]
+      (is (or (= (tf/nullpointer-error-map tf/missing-body-tag-response) actual)
+              ;; Java 14 and above have extended error messages for NPE
+              (= (tf/nullpointer-error-map tf/missing-body-tag-response "Cannot invoke \"String.length()\" because \"s\" is null") actual)))))
   (testing "Malformed json syntax in string."
     (is (= (tf/json-missing-key-error-map tf/malformed-json-response) (sptfy/response-to-map tf/malformed-json-response)))))
 
