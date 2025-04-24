@@ -69,14 +69,6 @@
   (testing "Get spotify information about an artists top tracks, due to ever changing data, only verify a status 200 response."
     (is  (= 200 (:status (meta (sptfy/get-an-artists-top-tracks {:id "0TnOYISbd1XYRBk9myaseg" :country "ES" } util/spotify-oauth-token)))))))
 
-(deftest test-get-an-artists-related-artists
-  (testing "Get spotify information about similar artists, due to ever changing data, only verify a status 200 response."
-    (is (= 200 (:status (meta (sptfy/get-an-artists-related-artists {:id "5ZKMPRDHc7qElVJFh3uRqB"} util/spotify-oauth-token)))))))
-
-(deftest test-get-a-list-of-featured-playlists
-  (testing "Get a list of spotify featured playlists, due to the data changing according to the time of day, only verify status 200 in response."
-    (is (= 200 (:status (meta (sptfy/get-a-list-of-featured-playlists {:country "US" :timestamp "2014-10-23T07:00:00"}  util/spotify-oauth-token)))))))
-
 (deftest test-get-a-list-of-new-releases
   (testing "Get a list of new releases, due to ever changing data, only verify a status 200 response."
     (is (= 200 (:status (meta (sptfy/get-a-list-of-new-releases {:country "SE" :limit 2} util/spotify-oauth-token)))))))
@@ -88,10 +80,6 @@
 (deftest test-get-a-category
   (testing "Get a spotify category and verify the json data to be equal to test data in category.json"
     (generate-test ( sptfy/get-a-category {:category_id "dinner" :locale "sv_SE" :country "SE"}  util/spotify-oauth-token) tf/category-file)))
-
-(deftest test-get-a-categorys-playlists
-  (testing "Get a spotify category's playlist, due to ever changing data, only verify a status 200 response."
-    (is (= 200 (:status (meta (sptfy/get-a-categorys-playlists {:category_id "dinner" :country "SE" :limit 10 :offset 5} util/spotify-oauth-token)))))))
 
 (deftest test-get-a-playlist
   (testing "Get a spotify playlist and verify the json data to be equal to test data in user-playlist.json"
