@@ -10,12 +10,11 @@
                  [cheshire "5.10.0"]
                  [clj-http "3.11.0"]]
   :profiles {
-             :dev [:project/dev]
-             :test [:project/dev :profiles/test]
-             :project/dev {
-                           :source-paths ["dev-resources"]
-                           :dependencies [[org.clojure/tools.namespace "1.0.0"]
-                                          [loudmoauth "0.1.3"]
-                                          [ring "1.8.2"]
-                                          [org.clojure/tools.nrepl "0.2.13"]]}
+             :dev {
+                   :source-paths ["dev-resources"]
+                   :dependencies [[org.clojure/tools.namespace "1.0.0"]
+                                  [loudmoauth "0.1.3"]
+                                  [ring "1.8.2"]
+                                  [org.clojure/tools.nrepl "0.2.13"]]}
+             :test [:dev :profiles/test]
              :profiles/test {}})
